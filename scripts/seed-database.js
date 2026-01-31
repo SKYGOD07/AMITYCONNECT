@@ -3,6 +3,15 @@ const { getFirestore, collection, addDoc, Timestamp } = require("firebase/firest
 const { getAuth, signInAnonymously, createUserWithEmailAndPassword } = require("firebase/auth");
 const { faker } = require("@faker-js/faker");
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCjOMtmfyqbLEt4lZoC_IxBXNHHGOzgpN8",
+    authDomain: "campus-flow-app-60fa8.firebaseapp.com",
+    projectId: "campus-flow-app-60fa8",
+    storageBucket: "campus-flow-app-60fa8.firebasestorage.app",
+    messagingSenderId: "990548010268",
+    appId: "1:990548010268:web:da49d89ec21bac94fd86d9",
+    measurementId: "G-8JNMDH21K0"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
