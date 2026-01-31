@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function to check if user is accessing their own document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User Profiles
+    match /users/{userId} {
+      // Readable by any authenticated user (needed to see host profiles, etc.)
+      allow read: if isAuthenticated();
+      // Writable only by the user themselves
+      allow write: if isOwner(userId);
+    }
+
+    // Emergency Alerts - High Priority
+    match /emergency_alerts/{alertId} {
+      // Readable by everyone (public safety)
+      allow read: if true;
+      // Writable by any authenticated user (to post an SOS)
+      allow write: if isAuthenticated();
+    }
+
+    // Rides
+    match /rides/{rideId} {
+      // Readable by any authenticated user
+      allow read: if isAuthenticated();
+      // Writable by any authenticated user (create, update status)
+      // In a real app, we'd want more granular checks (e.g. only host can cancel)
+      allow write: if isAuthenticated();
+    }
+
+    // Errands (Optional/Future)
+    match /errands/{errandId} {
+        allow read, write: if isAuthenticated();
+    }
+  }
+}
