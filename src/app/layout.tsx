@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import FloatingChat from "@/components/chat/FloatingChat";
 import EmergencyAlertOverlay from "@/components/sos/EmergencyAlertOverlay";
 import { Toaster } from "@/components/ui/sonner";
+import UnverifiedFacultyBanner from "@/components/layout/UnverifiedFacultyBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
               </main>
               <FloatingChat />
               <EmergencyAlertOverlay />
+              <UnverifiedFacultyBanner />
               <Toaster />
             </div>
           </AuthProvider>

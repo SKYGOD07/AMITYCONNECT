@@ -47,7 +47,8 @@ export default function Header() {
     }, [user]);
 
     // Hide header on landing page (it has its own navigation)
-    if (pathname === "/landing") {
+    // Also hide on auth pages as they use the landing header style
+    if (pathname === "/landing" || pathname === "/login" || pathname === "/signup") {
         return null;
     }
 

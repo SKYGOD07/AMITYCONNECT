@@ -52,47 +52,20 @@ function AnimatedSection({ children, className = "", id, ...rest }: AnimatedSect
     );
 }
 
+import LandingHeader from "@/components/layout/LandingHeader";
+
+// ... (existing imports)
+
 export default function LandingPage() {
     const { scrollYProgress } = useScroll();
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
     return (
         <div className="min-h-screen bg-background overflow-x-hidden">
-            {/* Navigation Header */}
-            <motion.header
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
-            >
-                <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/landing" className="font-bold text-xl flex items-center gap-2 text-primary">
-                        <img src="/assets/logo.png" alt="CampusFlow" className="h-8 w-auto" />
-                        <span>CampusFlow</span>
-                    </Link>
+            {/* Reuse the Landing Header */}
+            <LandingHeader />
 
-                    <nav className="hidden md:flex items-center gap-8">
-                        <Link href="#features" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                            Features
-                        </Link>
-                        <Link href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                            How It Works
-                        </Link>
-                        <Link href="#get-started" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                            Get Started
-                        </Link>
-                    </nav>
-
-                    <div className="flex items-center gap-3">
-                        <Link href="/login">
-                            <Button variant="ghost" size="sm">Login</Button>
-                        </Link>
-                        <Link href="/signup">
-                            <Button size="sm">Sign Up</Button>
-                        </Link>
-                    </div>
-                </div>
-            </motion.header>
+            {/* Floating background elements */}
 
             {/* Floating background elements */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden">

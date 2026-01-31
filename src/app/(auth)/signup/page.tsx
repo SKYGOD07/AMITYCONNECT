@@ -84,7 +84,7 @@ export default function SignupPage() {
                 createdAt: serverTimestamp(),
             });
 
-            router.push("/");
+            router.push("/landing");
         } catch (err: any) {
             setError(err.message || "Failed to sign up");
         } finally {
@@ -117,7 +117,7 @@ export default function SignupPage() {
                 createdAt: serverTimestamp(),
             }, { merge: true });
 
-            router.push("/");
+            router.push("/landing");
         } catch (err: any) {
             setError(err.message || "Google sign-up failed");
         } finally {
