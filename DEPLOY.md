@@ -1,4 +1,4 @@
-# 🚀 Deploying CampusFlow
+# 🚀 Deploying AmityConnect
 
 The easiest way to host your Next.js application for free is using **Vercel** (the creators of Next.js) or **Netlify**.
 
@@ -14,10 +14,10 @@ Vercel is optimized for Next.js and requires zero configuration.
     *   Set up and deploy? **Yes**
     *   Which scope? (Select your name/team)
     *   Link to existing project? **No**
-    *   Project Name: `campusflow` (or press Enter)
+    *   Project Name: `amity-connect` (or press Enter)
     *   Directory: `./` (press Enter)
     *   Want to modify settings? **No**
-3.  **Wait for deployment!** You will get a live URL (e.g., `https://campusflow.vercel.app`).
+3.  **Wait for deployment!** You will get a live URL (e.g., `https://amity-connect.vercel.app`).
 
 ---
 
@@ -44,7 +44,7 @@ Since you have initialized a Git repository:
 1.  Push your code to GitHub (as described in the previous step).
 2.  Go to [Vercel.com](https://vercel.com) or [Netlify.com](https://netlify.com).
 3.  Click "Add New Project" / "Import from Git".
-4.  Select your `campusflow` repository.
+4.  Select your `amity-connect` repository.
 5.  Click **Deploy**.
     *   It will automatically detect Next.js.
     *   **Environment Variables**: Remember to add your Firebase keys in the project settings on the Vercel/Netlify dashboard!

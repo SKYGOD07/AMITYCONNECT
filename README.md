@@ -1,8 +1,8 @@
-# 🎓 CampusFlow - Smart Campus Safety & Mobility Logic
+# 🎓 AmityConnect - Smart Campus Safety & Mobility Logic
 
-![CampusFlow Banner](public/logo.png)
+![AmityConnect Banner](public/logo.png)
 
-**CampusFlow** is a hyper-local, community-driven platform designed to enhance safety and mobility within university campuses. It integrates real-time emergency response systems with ride-sharing and peer-to-peer errand services, all wrapped in a gamified experience to encourage community participation.
+**AmityConnect** is a hyper-local, community-driven platform designed to enhance safety and mobility within **Amity University Madhya Pradesh**. It integrates real-time emergency response systems with ride-sharing and peer-to-peer errand services, all wrapped in a gamified experience to encourage community participation.
 
 ## 🚀 Key Features
 
@@ -55,8 +55,8 @@ Encourages positive community behavior.
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/campusflow.git
-    cd campusflow
+    git clone https://github.com/SKYGOD07/AMITYCONNECT.git
+    cd amity-connect
     ```
 
 2.  **Install dependencies**
@@ -101,4 +101,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-> Built with ❤️ for the HackOverflow 2026 Hackathon.
+> Built with ❤️ for Amity University Madhya Pradesh.
