@@ -48,7 +48,7 @@ export default function SignupPage() {
     // Validate email when role or email changes
     useEffect(() => {
         if (role === 'faculty' && email && !isFacultyEmail(email)) {
-            setWarning("Faculty accounts require an official @iitgoa.ac.in email. You may need admin verification.");
+            setWarning("Faculty accounts require an official @amity.edu email. You may need admin verification.");
         } else {
             setWarning("");
         }
@@ -193,7 +193,7 @@ export default function SignupPage() {
                             <div>
                                 <p className="font-medium">Faculty Verification</p>
                                 <p className="text-xs mt-1">
-                                    Use your @iitgoa.ac.in email for auto-verification.
+                                    Use your @amity.edu email for auto-verification.
                                     Other emails require admin approval.
                                 </p>
                             </div>
@@ -256,7 +256,7 @@ export default function SignupPage() {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder={role === "faculty" ? "faculty@iitgoa.ac.in" : "student@iitgoa.ac.in"}
+                                placeholder={role === "faculty" ? "faculty@amity.edu" : "student@amity.edu"}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required

@@ -59,7 +59,7 @@ export default function UnverifiedFacultyBanner() {
                     </p>
                     <p className="text-sm bg-amber-50 p-3 rounded-lg border border-amber-100 text-amber-800">
                         <AlertTriangle className="h-4 w-4 inline mr-2 text-amber-600" />
-                        Because you didn't use an official <strong>@iitgoa.ac.in</strong> email,
+                        Because you didn't use an official <strong>@amity.edu</strong> email,
                         an administrator must manually approve your request.
                     </p>
                 </div>
