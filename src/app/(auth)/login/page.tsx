@@ -26,7 +26,7 @@ export default function LoginPage() {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            router.push("/landing");
+            router.push("/");
         } catch (err: any) {
             setError(err.message || "Failed to login");
         } finally {
@@ -63,7 +63,7 @@ export default function LoginPage() {
                 });
             }
 
-            router.push("/landing");
+            router.push("/");
         } catch (err: any) {
             setError(err.message || "Google sign-in failed");
         } finally {
