@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="purple_primary">#8B5CF6</color>
+    <color name="purple_secondary">#A78BFA</color>
+    <color name="blue_primary">#3B82F6</color>
+    <color name="blue_secondary">#60A5FA</color>
+    <color name="green_primary">#22C55E</color>
+    <color name="red_primary">#EF4444</color>
+    <color name="orange_primary">#F97316</color>
+    
+    <!-- Background -->
+    <color name="background_dark">#0A0A0F</color>
+    <color name="surface_dark">#1A1A2E</color>
+    <color name="card_dark">#252542</color>
+    
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A1A1AA</color>
+    <color name="text_muted">#71717A</color>
+</resources>
