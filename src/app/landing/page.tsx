@@ -108,7 +108,16 @@ export default function LandingPage() {
                     >
                         <span className="gradient-text">Connect.</span>{" "}
                         <span className="gradient-text">Commute.</span>{" "}
-                        "AmityConnect is a unified app integrating Smart Ride-Sharing, a Peer-to-Peer Marketplace, and Real-Time SOS. It replaces chaotic group chats with a structured platform for safer, cheaper, and connected campus life."
+                        <span className="gradient-text">Assist.</span>
+                    </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+                    >
+                        AmityConnect is a unified app integrating Smart Ride-Sharing, a Peer-to-Peer Marketplace, and Real-Time SOS. It replaces chaotic group chats with a structured platform for safer, cheaper, and connected campus life.
                     </motion.p>
 
                     <motion.div
