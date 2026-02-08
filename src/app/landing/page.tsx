@@ -97,8 +97,7 @@ export default function LandingPage() {
                         transition={{ delay: 0.2 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
                     >
-                        <Sparkles className="h-4 w-4" />
-                        IIT Goa Campus Community Platform
+                        Amity Gwalior Campus Community Platform
                     </motion.div>
 
                     <motion.h1
@@ -109,17 +108,7 @@ export default function LandingPage() {
                     >
                         <span className="gradient-text">Connect.</span>{" "}
                         <span className="gradient-text">Commute.</span>{" "}
-                        <span className="gradient-text">Assist.</span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
-                    >
-                        Share rides, help with errands, stay safe together.
-                        CampusFlow brings the IIT Goa community closer.
+                        "AmityConnect is a unified app integrating Smart Ride-Sharing, a Peer-to-Peer Marketplace, and Real-Time SOS. It replaces chaotic group chats with a structured platform for safer, cheaper, and connected campus life."
                     </motion.p>
 
                     <motion.div
@@ -167,7 +156,7 @@ export default function LandingPage() {
                             Everything you need on campus
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                            Three powerful features designed for the IIT Goa community
+                            Three powerful features designed for the Amity Gwalior community
                         </p>
                     </motion.div>
 
@@ -220,7 +209,7 @@ export default function LandingPage() {
                 <div className="max-w-6xl mx-auto">
                     <motion.div variants={fadeInUp} className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                            How CampusFlow Works
+                            How AmityConnect Works
                         </h2>
                         <p className="text-xl text-muted-foreground">
                             Get started in three simple steps
@@ -235,7 +224,7 @@ export default function LandingPage() {
                             {
                                 step: "01",
                                 title: "Sign Up",
-                                description: "Create your account as a Student or Faculty member with your IIT Goa email.",
+                                description: "Create your account as a Student or Faculty member with your Amity University email.",
                                 icon: Users
                             },
                             {
@@ -289,7 +278,7 @@ export default function LandingPage() {
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div variants={fadeInUp}>
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                            Ready to join CampusFlow?
+                            Ready to join AmityConnect?
                         </h2>
                         <p className="text-xl text-muted-foreground mb-12">
                             Select your role to get started
@@ -348,7 +337,7 @@ export default function LandingPage() {
             {/* Footer */}
             <footer className="py-12 px-4 border-t">
                 <div className="max-w-6xl mx-auto text-center text-muted-foreground">
-                    <p>© 2026 CampusFlow. Built for IIT Goa with ❤️</p>
+                    <p>© 2026 AmityConnect. Built for Amity University Madhya Pradesh with ❤️</p>
                 </div>
             </footer>
         </div>

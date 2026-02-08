@@ -18,7 +18,7 @@ export default function LandingHeader() {
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <Link href="/landing" className="font-bold text-xl flex items-center gap-2 text-primary">
                     <img src="/assets/logo.png" alt="CampusFlow" className="h-8 w-auto" />
-                    <span>CampusFlow</span>
+                    <span>AmityConnect</span>
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8">

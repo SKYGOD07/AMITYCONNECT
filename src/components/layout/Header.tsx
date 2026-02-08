@@ -65,7 +65,7 @@ export default function Header() {
                 <div className="flex items-center gap-4">
                     <Link href={isFacultyOrAdmin ? "/faculty" : "/"} className="font-bold text-xl flex items-center gap-2 text-primary">
                         <img src="/assets/logo.png" alt="CampusFlow" className="h-8 w-auto" />
-                        <span className="hidden sm:block">CampusFlow</span>
+                        <span className="hidden sm:block">AmityConnect</span>
                     </Link>
 
                     {/* Search - only show when logged in */}
