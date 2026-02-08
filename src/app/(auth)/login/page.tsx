@@ -77,7 +77,7 @@ export default function LoginPage() {
                 <CardHeader className="text-center">
                     <CardTitle className="text-2xl">Welcome Back</CardTitle>
                     <CardDescription>
-                        Login to CampusFlow to continue
+                        Login to AmityConnect to continue
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -126,7 +126,7 @@ export default function LoginPage() {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="student@iitgoa.ac.in"
+                                placeholder="student@amity.edu"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -171,6 +171,6 @@ export default function LoginPage() {
                     </p>
                 </CardFooter>
             </Card>
-        </div>
+        </div >
     );
 }
