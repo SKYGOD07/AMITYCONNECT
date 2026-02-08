@@ -25,7 +25,7 @@ const SAMPLE_ERRANDS: Errand[] = [
         requesterName: "Aisha Khan",
         title: "Coffee from Canteen",
         description: "Please get me a cold coffee from the main canteen. I'm stuck in a lab session and can't leave!",
-        location: "Physics Lab, IIT Goa",
+        location: "Physics Lab, Amity Block B",
         reward: "₹50 + keep the change",
         status: "OPEN",
         createdAt: createMockTimestamp(new Date(Date.now() - 600000)), // 10 mins ago
@@ -36,7 +36,7 @@ const SAMPLE_ERRANDS: Errand[] = [
         requesterName: "Rohan Mehta",
         title: "Print Notes",
         description: "Need someone to print 20 pages of notes from the printing shop near the gate. File will be shared on WhatsApp.",
-        location: "Boys Hostel B2",
+        location: "Boys Hostel H1",
         reward: "₹30",
         status: "OPEN",
         createdAt: createMockTimestamp(new Date(Date.now() - 1800000)), // 30 mins ago
@@ -46,7 +46,7 @@ const SAMPLE_ERRANDS: Errand[] = [
         requesterId: "demo-user-3",
         requesterName: "Kavya Nair",
         title: "Medicine from Pharmacy",
-        description: "Urgent! Need Crocin tablets from the pharmacy near Panjim. Will share Google Pay payment.",
+        description: "Urgent! Need Crocin tablets from the pharmacy near City Center. Will share Google Pay payment.",
         location: "Girls Hostel G1",
         reward: "₹100",
         status: "OPEN",

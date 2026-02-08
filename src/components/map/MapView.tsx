@@ -33,7 +33,7 @@ interface MapViewProps {
 }
 
 const MapView = ({
-    center = [15.4226, 73.9806], // Default: IIT Goa
+    center = [26.2307, 78.1969], // Default: Amity University Madhya Pradesh (Gwalior)
     zoom = 13,
     markers = [],
     onLocationSelect
