@@ -203,7 +203,11 @@ export default function NotificationBell() {
                                                     </AvatarFallback>
                                                 </Avatar>
                                             ) : (
-                                                <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${notif.type === 'message' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600' :
+                                                    notif.type === 'ride' ? 'bg-green-100 dark:bg-green-900/30 text-green-600' :
+                                                        notif.type === 'sos' ? 'bg-red-100 dark:bg-red-900/30 text-red-600' :
+                                                            'bg-muted text-muted-foreground'
+                                                    }`}>
                                                     {getIcon(notif.type)}
                                                 </div>
                                             )}

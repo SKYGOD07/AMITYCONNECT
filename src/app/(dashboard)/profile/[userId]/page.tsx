@@ -22,6 +22,7 @@ import Link from "next/link";
 import { UserProfile } from "@/types";
 import { format } from "date-fns";
 import ProfileBadges from "@/components/profile/ProfileBadges";
+import { toast } from "sonner";
 
 // Social link icons and labels
 const SOCIAL_PLATFORMS = [
@@ -202,9 +203,10 @@ export default function ProfilePage() {
 
             setMessage("");
             setShowMessageModal(false);
-            alert("Message sent!");
+            toast.success("Message sent successfully!");
         } catch (error) {
             console.error("Error sending message:", error);
+            toast.error("Failed to send message");
         } finally {
             setSendingMessage(false);
         }

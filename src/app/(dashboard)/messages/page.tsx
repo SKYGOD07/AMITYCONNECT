@@ -97,13 +97,18 @@ export default function MessagesPage() {
 
             {/* Messages List */}
             {messages.length === 0 ? (
-                <Card>
-                    <CardContent className="py-16 text-center">
-                        <Mail className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">No messages yet</h3>
-                        <p className="text-muted-foreground">
-                            When someone sends you a message, it will appear here.
+                <Card className="border-dashed">
+                    <CardContent className="py-20 text-center">
+                        <div className="w-20 h-20 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <MessageCircle className="h-10 w-10 text-muted-foreground/50" />
+                        </div>
+                        <h3 className="text-xl font-bold mb-2">No messages yet</h3>
+                        <p className="text-muted-foreground max-w-sm mx-auto">
+                            Start a conversation with other students or faculty members by visiting their profiles.
                         </p>
+                        <Link href="/people" className="mt-6 inline-block">
+                            <Button>Browse People</Button>
+                        </Link>
                     </CardContent>
                 </Card>
             ) : (
@@ -111,52 +116,60 @@ export default function MessagesPage() {
                     {messages.map((msg) => (
                         <Card
                             key={msg.id}
-                            className={`transition-colors ${!msg.read ? 'border-primary/50 bg-primary/5' : ''}`}
+                            className={`transition-all hover:shadow-md ${!msg.read ? 'border-l-4 border-l-primary bg-primary/5' : 'hover:bg-muted/50'}`}
                         >
-                            <CardContent className="p-4">
+                            <CardContent className="p-5">
                                 <div className="flex items-start gap-4">
                                     <Link href={`/profile/${msg.senderId}`}>
-                                        <Avatar className="h-12 w-12 cursor-pointer hover:ring-2 hover:ring-primary transition-all">
-                                            <AvatarFallback>
-                                                {msg.senderName?.charAt(0) || "?"}
-                                            </AvatarFallback>
-                                        </Avatar>
+                                        <div className="relative">
+                                            <Avatar className="h-12 w-12 cursor-pointer border-2 border-background shadow-sm hover:scale-105 transition-transform">
+                                                <AvatarFallback className="bg-primary/10 text-primary font-bold">
+                                                    {msg.senderName?.charAt(0) || "?"}
+                                                </AvatarFallback>
+                                            </Avatar>
+                                            {!msg.read && (
+                                                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-primary border-2 border-background"></span>
+                                                </span>
+                                            )}
+                                        </div>
                                     </Link>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-1">
                                             <Link href={`/profile/${msg.senderId}`} className="hover:underline">
-                                                <span className="font-semibold">{msg.senderName || "Unknown"}</span>
-                                            </Link>
-                                            <div className="flex items-center gap-2">
-                                                {!msg.read && (
-                                                    <Badge variant="default" className="text-xs">New</Badge>
-                                                )}
-                                                <span className="text-xs text-muted-foreground">
-                                                    {msg.createdAt?.toDate ?
-                                                        format(msg.createdAt.toDate(), "MMM d, h:mm a") :
-                                                        "Just now"
-                                                    }
+                                                <span className={`font-semibold text-lg ${!msg.read ? 'text-foreground' : 'text-muted-foreground'}`}>
+                                                    {msg.senderName || "Unknown"}
                                                 </span>
-                                            </div>
-                                        </div>
-                                        <p className="text-muted-foreground">{msg.content}</p>
-                                        <div className="flex items-center gap-2 mt-3">
-                                            <Link href={`/profile/${msg.senderId}`}>
-                                                <Button size="sm" variant="outline">
-                                                    View Profile
-                                                </Button>
                                             </Link>
+                                            <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
+                                                {msg.createdAt?.toDate ?
+                                                    format(msg.createdAt.toDate(), "MMM d, h:mm a") :
+                                                    "Just now"
+                                                }
+                                            </span>
+                                        </div>
+                                        <p className={`text-sm leading-relaxed ${!msg.read ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+                                            {msg.content}
+                                        </p>
+                                        <div className="flex items-center gap-3 mt-4">
                                             {!msg.read && (
                                                 <Button
                                                     size="sm"
-                                                    variant="ghost"
+                                                    variant="default"
                                                     onClick={() => msg.id && markAsRead(msg.id)}
-                                                    className="gap-1"
+                                                    className="h-8 text-xs gap-1.5 rounded-full"
                                                 >
-                                                    <Check className="h-3 w-3" />
+                                                    <CheckCheck className="h-3 w-3" />
                                                     Mark as Read
                                                 </Button>
                                             )}
+                                            <Link href={`/profile/${msg.senderId}`}>
+                                                <Button size="sm" variant={msg.read ? "outline" : "ghost"} className="h-8 text-xs gap-1.5 rounded-full">
+                                                    <Mail className="h-3 w-3" />
+                                                    Reply
+                                                </Button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
