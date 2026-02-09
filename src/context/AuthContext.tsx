@@ -27,6 +27,44 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         return () => unsubscribe();
     }, []);
 
+    // Online Status Heartbeat
+    useEffect(() => {
+        if (!user) return;
+
+        const updateStatus = async () => {
+            try {
+                const { doc, updateDoc, serverTimestamp } = await import("firebase/firestore");
+                const { db } = await import("@/lib/firebase");
+
+                await updateDoc(doc(db, "users", user.uid), {
+                    lastActive: serverTimestamp()
+                });
+            } catch (error) {
+                console.error("Error updating online status:", error);
+            }
+        };
+
+        // Update immediately on mount/login
+        updateStatus();
+
+        // Update every 5 minutes
+        const interval = setInterval(updateStatus, 5 * 60 * 1000);
+
+        // Update on window focus
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                updateStatus();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, [user]);
+
     return (
         <AuthContext.Provider value={{ user, loading }}>
             {!loading && children}

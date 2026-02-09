@@ -39,6 +39,7 @@ export interface UserProfile {
     totalActiveDays?: number;    // Total days active
 
     createdAt?: Timestamp | string;
+    lastActive?: Timestamp | string; // For online status
 }
 
 export interface Follow {

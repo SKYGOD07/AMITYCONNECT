@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy, Timestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useAuth } from "@/context/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,6 +21,24 @@ export default function PeoplePage() {
     const searchParams = useSearchParams();
     const filterParam = searchParams.get("filter") as "students" | "faculty" | null;
     const { user } = useAuth();
+
+    const isUserOnline = (lastActive?: Timestamp | string) => {
+        if (!lastActive) return false;
+
+        let lastActiveDate: Date;
+
+        if (typeof lastActive === 'string') {
+            lastActiveDate = new Date(lastActive);
+        } else if (lastActive && typeof (lastActive as any).toDate === 'function') {
+            lastActiveDate = (lastActive as any).toDate();
+        } else {
+            return false;
+        }
+
+        const now = new Date();
+        const diff = now.getTime() - lastActiveDate.getTime();
+        return diff < 5 * 60 * 1000; // 5 minutes
+    };
 
     const [filter, setFilter] = useState<"all" | "students" | "faculty">(filterParam || "all");
     const [people, setPeople] = useState<UserProfile[]>([]);
@@ -213,6 +231,12 @@ export default function PeoplePage() {
                                                 </h3>
                                                 {profile.verified && (
                                                     <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                                                )}
+                                                {isUserOnline(profile.lastActive) && (
+                                                    <span className="relative flex h-2.5 w-2.5 ml-1">
+                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                                    </span>
                                                 )}
                                             </div>
                                             {getRoleBadge(profile)}

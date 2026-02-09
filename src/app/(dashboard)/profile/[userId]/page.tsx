@@ -334,6 +334,47 @@ export default function ProfilePage() {
                                         {profile.verified && (
                                             <CheckCircle className="h-5 w-5 text-blue-500" />
                                         )}
+                                        {(() => {
+                                            const lastActive = profile.lastActive;
+                                            if (!lastActive) return null;
+
+                                            // Safe conversion helper since Timestamp object structure can vary
+                                            const getDate = (ts: any) => {
+                                                if (ts instanceof Date) return ts;
+                                                if (typeof ts === 'string') return new Date(ts);
+                                                if (ts && typeof ts.toDate === 'function') return ts.toDate();
+                                                return new Date(); // Fallback
+                                            };
+
+                                            const lastActiveDate = getDate(lastActive);
+                                            const now = new Date();
+                                            const diff = now.getTime() - lastActiveDate.getTime();
+                                            const isOnline = diff < 5 * 60 * 1000; // 5 minutes
+
+                                            if (isOnline) {
+                                                return (
+                                                    <Badge variant="outline" className="border-green-500/30 bg-green-500/10 text-green-600 gap-1.5">
+                                                        <span className="relative flex h-2 w-2">
+                                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                                        </span>
+                                                        Online
+                                                    </Badge>
+                                                );
+                                            } else {
+                                                // Format logic: "Active 2h ago" or just don't show anything?
+                                                // Let's show "Last seen" if within 24h
+                                                const diffHours = diff / (1000 * 60 * 60);
+                                                if (diffHours < 24) {
+                                                    return (
+                                                        <Badge variant="secondary" className="text-muted-foreground font-normal">
+                                                            Active {diffHours < 1 ? 'recently' : `${Math.floor(diffHours)}h ago`}
+                                                        </Badge>
+                                                    );
+                                                }
+                                                return null;
+                                            }
+                                        })()}
                                     </div>
                                     <div className="flex items-center gap-2 flex-wrap">
                                         {getRoleBadge()}
