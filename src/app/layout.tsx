@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import Header from "@/components/layout/Header";
+import MobileNav from "@/components/layout/MobileNav";
 import { ThemeProvider } from "@/components/theme-provider";
 import FloatingChat from "@/components/chat/FloatingChat";
 import EmergencyAlertOverlay from "@/components/sos/EmergencyAlertOverlay";
@@ -33,6 +34,7 @@ export default function RootLayout({
           <AuthProvider>
             <div className="min-h-screen bg-background flex flex-col">
               <Header />
+              <MobileNav />
               <main className="flex-1 container mx-auto px-4 py-8">
                 {children}
               </main>
