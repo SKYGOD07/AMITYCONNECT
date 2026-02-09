@@ -33,8 +33,8 @@ interface MapViewProps {
 }
 
 const MapView = ({
-    center = [26.2307, 78.1969], // Default: Amity University Madhya Pradesh (Gwalior)
-    zoom = 13,
+    center = [26.2183, 78.1828], // Default: Amity University Gwalior
+    zoom = 16, // Closer zoom for campus view
     markers = [],
     onLocationSelect
 }: MapViewProps) => {
@@ -57,7 +57,7 @@ const MapView = ({
         >
             <TileLayer
                 attribution='&copy; <a href="https://www.google.com/maps">Google Maps</a>'
-                url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+                url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}" // lyrs=y is Hybrid (Satellite + Labels)
             />
 
             {markers.map((marker) => (

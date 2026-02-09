@@ -41,5 +41,10 @@ service cloud.firestore {
     match /errands/{errandId} {
         allow read, write: if isAuthenticated();
     }
+
+    // Messages - Allow authenticated users to chat
+    match /messages/{messageId} {
+        allow read, write: if isAuthenticated();
+    }
   }
 }

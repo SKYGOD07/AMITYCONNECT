@@ -168,7 +168,7 @@ export default function EmergencyPage() {
                                 center={
                                     alerts.length > 0
                                         ? [alerts[0].location.latitude, alerts[0].location.longitude]
-                                        : [15.4226, 73.9806]
+                                        : [26.2183, 78.1828] // Amity University Gwalior
                                 }
                             />
                         </div>
