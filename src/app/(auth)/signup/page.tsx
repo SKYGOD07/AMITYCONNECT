@@ -16,9 +16,8 @@ import { UserRole } from "@/types";
 
 // Faculty email domains that are auto-verified
 const FACULTY_EMAIL_PATTERNS = [
-    /@iitgoa\.ac\.in$/i,
-    /@faculty\.iitgoa\.ac\.in$/i,
-    /@admin\.iitgoa\.ac\.in$/i,
+    /@amity\.edu$/i,
+    /@gwl\.amity\.edu$/i,
 ];
 
 // Check if email qualifies for faculty role

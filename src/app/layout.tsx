@@ -12,7 +12,7 @@ import UnverifiedFacultyBanner from "@/components/layout/UnverifiedFacultyBanner
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CampusFlow",
+  title: "AmityConnect",
   description: "Campus commute and assistance platform",
 };
 
