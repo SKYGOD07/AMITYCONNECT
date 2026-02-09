@@ -33,7 +33,7 @@ interface MapViewProps {
 }
 
 const MapView = ({
-    center = [26.2183, 78.1828], // Default: Amity University Gwalior
+    center = [26.2307, 78.1969], // Default: Amity University Madhya Pradesh Gwalior
     zoom = 16, // Closer zoom for campus view
     markers = [],
     onLocationSelect
